@@ -13,25 +13,24 @@ def isValid(s):
     freq=defaultdict(int)
     for i in s:
         fd[i]+=1
-    count = 0
+    min_count = 9999999
+    max_count = 0
     for value in fd.values():
         freq[value]+=1
+        if value < min_count:
+            min_count = value
+        if value > max_count:
+            max_count = value
 
     if len(freq)==1:
         return "YES"
     elif len(freq)==2:
-        i=0
-        for value in freq.values():
-            if i==0:
-                if value==1:
-                    return "YES"
-            elif i==1:
-                if value==1:
-                    return "YES"
-                else:
-                    return "NO"
-            i+=1
+        if freq[max_count] == 1 and max_count - min_count == 1:
+            return 'YES'
+        elif freq[min_count] == 1 and min_count == 1:
+            return 'YES'
     return "NO"
+
 
 
 
