@@ -38,10 +38,15 @@ def jerry_win(ts):
 
 
 if __name__ == '__main__':
+    khali = []
+    for i in range(1,600):
+        result = jerry_win(i)
+        khali.append([i,result])
 
+    print(khali)
 
-    q = int(input())
-    for q_itr in range(q):
-        n = int(input())
-        result = jerry_win(n)
-        print(result)
+    # q = int(input())
+    # for q_itr in range(q):
+    #     n = int(input())
+    #     result = jerry_win(n)
+    #     print(result)
