@@ -1,5 +1,4 @@
 import math
-import time
 
 def Log2(x): 
     if x == 0: 
@@ -34,8 +33,8 @@ def diff_i(ts):
     return None
 
 
-
-def jerry_naya(ts):
+#code with formula
+def jerry_with_formula(ts):
     count = 0
     if is_odd(ts):
         return int(ts/2)
@@ -50,7 +49,7 @@ def jerry_naya(ts):
                 return int(ts/n)       
     return count
 
-
+#code with brute force
 def jerry_purana(ts):
     js = 1
     count=0
@@ -72,16 +71,14 @@ def jerry_purana(ts):
 
 if __name__ == '__main__':
     khali = []
-
-    start = time.time()
     count = 0
-    for i in range(9999,1000000):
-        result = jerry_naya(i)
-        # result2= jerry_purana(i)
+    # i in the following loop will be the value of tom
+    for i in range(1,10000):
+        result = jerry_with_formula(999)
+        result2= jerry_purana(999)
+        print(result2,result)
         count+=1
-        # if result!=result2:
-            # khali.append([result,result2])
-        print(result,i,count)
-
-    end = time.time()
-    print(f"Runtime of the program is {end - start}")
+        if result!=result2:
+            khali.append([result,result2])
+        # print(result,i,count)
+    print(khali)
