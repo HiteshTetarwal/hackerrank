@@ -10,23 +10,25 @@ import sys
 def checkevenpalindrome(s):
     i = 0
     j=len(s)-1
+    status = True
     while i<j:
         if s[i]==s[j]:
-            status=True
+            pass
         else:
-            status=False
+            return False
         i+=1
         j-=1
     return status
+
 def checkoddpalindrome(s):
     i = 0
     j=len(s)-1
-    while i<=j:
+    status =True
+    while i!=j:
         if s[i]==s[j]:
-            status=True
+            pass
         else:
-            status=False
-            break
+            return False
         i+=1
         j-=1
     return status
@@ -40,15 +42,26 @@ def substrCount(n, s):
         temp=''
         for j in range(i,n):
             temp+=s[j]
-            sub.append(temp)
-    for key in sub:
-        if len(key)%2==0:
-            if checkevenpalindrome(key):
-                count+=1
-        else:
-            if checkoddpalindrome(key):
-                count+=1
-    return count,sub
+            # print(temp)
+            if len(temp)&1:
+                if checkevenpalindrome(temp):
+                    print(temp)
+                    count+=1
+            else:
+                if len(temp)==1:
+                    print(temp)
+                    count+=1
+                elif checkoddpalindrome(temp):
+                    print(temp)
+                    count+=1
+    return count
+    # for key in sub:
+    #     if (len(key))&1:
+    #         if checkevenpalindrome(key):
+    #             count+=1
+    #     else:
+    #         if checkoddpalindrome(key):
+    #             count+=1
 if __name__ == '__main__':
     n = int(input())
 
