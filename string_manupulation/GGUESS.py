@@ -10,7 +10,7 @@ while status:
     if x == 'E':
         break
     if x == 'L':
-        y = random.randint(1, y)
+        y = int()
         print(y)
         sys.stdout.flush()
     if x == 'G':
