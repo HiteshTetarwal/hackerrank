@@ -1,3 +1,8 @@
+# Really simple 3 pass solution: 
+# 1. Build a list of tuples such that the string "aaabbc" can be squashed down to [("a", 3), ("b", 2), ("c", 1)]. 
+# 2. add to answer all combinations of substrings from these tuples which would represent palindromes which have all same letters. 
+# 3. traverse this list to specifically find the second case mentioned in probelm
+
 def substrCount(n, s):
     l = []
     count = 0
