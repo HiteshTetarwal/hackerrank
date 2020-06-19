@@ -18,12 +18,8 @@ def Merge(a,b):
         else:
             d.append(b[0])
             b = b[1:]
-
     d = d + a + b
-
     return d
-
-
 
 def MergeSort(contests):
     if len(contests)==0 or len(contests)==1:
