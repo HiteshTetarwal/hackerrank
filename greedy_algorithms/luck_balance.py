@@ -34,12 +34,18 @@ def MergeSort(contests):
 def luckBalance(k, contests):
     luck_balance = 0
     contests = MergeSort(contests)
+    one_wala = []
     for i in range(len(contests)):
-        if contests[i][1] == 1 and k>0:
-            luck_balance+=contests[i][0]
-            k-=1
+        if contests[i][1] == 1:
+            one_wala.append(contests[i])
         elif contests[i][1] == 0:
             luck_balance+=contests[i][0]
+    for i in range(len(one_wala)-1,-1,-1):
+        if k>0:
+            k-=1
+            luck_balance+=one_wala[i][0]
+        elif k==0:
+            luck_balance-=one_wala[i][0]
     return luck_balance
 
 if __name__ == '__main__':
